@@ -11,4 +11,10 @@ WORKDIR /app
 COPY ./app/requirements.txt /app/
 RUN pip install -r requirements.txt
 
-COPY . /app/
+COPY ./app/* /app/
+
+RUN mkdir -p /docker
+COPY ./docker/entrypoint.sh /docker/
+RUN chmod +x /docker/entrypoint.sh
+ENTRYPOINT ["/docker/entrypoint.sh"]
+
