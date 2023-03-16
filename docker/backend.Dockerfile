@@ -8,10 +8,10 @@ ENV PYTHONUNBUFFERED=1
 RUN mkdir -p /app
 WORKDIR /app
 
-COPY ./app/requirements.txt /app/
+COPY ./app/backend/requirements.txt /app/
 RUN pip install -r requirements.txt
 
-COPY ./app/* /app/
+COPY ./app/backend/* /app/
 
 RUN mkdir -p /docker
 COPY ./docker/entrypoint.sh /docker/
