@@ -4,7 +4,7 @@ services:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-  web:
+  backend:
     tty: true
     command: python manage.py runserver 0.0.0.0:8000
     ports:
@@ -13,3 +13,9 @@ services:
       - POSTGRES_NAME=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+
+  frontend:
+    command : npm start
+    ports:
+      - "3000:3000"
+    tty: true

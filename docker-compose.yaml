@@ -4,7 +4,8 @@ services:
     volumes:
       - ./data/db:/var/lib/postgresql/data
     container_name: database
-  web:
+
+  backend:
     build:
       context: .
       dockerfile: ./docker/backend.Dockerfile
@@ -12,4 +13,15 @@ services:
       - ./app/backend:/app
     depends_on:
       - db
-    container_name: django
+    container_name: backend
+
+  frontend:
+    build:
+      context: .
+      dockerfile: ./docker/frontend.Dockerfile
+    restart: always
+    container_name: frontend
+    volumes:
+      - ./app/frontend:/app
+    depends_on:
+      - backend
