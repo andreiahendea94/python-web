@@ -5,16 +5,17 @@ RUN apt-get update
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
-RUN mkdir -p /app
 WORKDIR /app
 
-COPY ./app/backend/requirements.txt /app/
+COPY ./app/backend/requirements.txt ./
 RUN pip install -r requirements.txt
 
-COPY ./app/backend/* /app/
+COPY ./app/backend/* ./
 
-RUN mkdir -p /docker
-COPY ./docker/entrypoint.sh /docker/
-RUN chmod +x /docker/entrypoint.sh
+WORKDIR /docker
+COPY ./docker/entrypoint.sh ./
+RUN chmod +x ./entrypoint.sh
+
+WORKDIR /app
 ENTRYPOINT ["/docker/entrypoint.sh"]
 
