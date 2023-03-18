@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-from django_countries.fields import CountryField
-from cities_light.models import City
+from cities_light.models import City, Country
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
 from django.core.validators import RegexValidator
 
@@ -13,7 +12,7 @@ class User(AbstractUser):
 
     email = models.EmailField(max_length=255, unique=True)
     city = models.ForeignKey(City, on_delete=models.CASCADE, null=True, blank=True)
-    country = CountryField(null=True, blank=True)
+    country = models.ForeignKey(Country, on_delete=models.CASCADE, null=True, blank=True)
     date_of_birth = models.DateField(null=True, blank=True)
     phone_number = models.CharField(validators=[phone_regex], null=True, blank=True, max_length=17)
 
