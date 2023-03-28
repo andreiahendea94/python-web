@@ -1,0 +1,31 @@
+.RegisterPage__Container {
+  height: 100vh;
+  width: 100vw;
+}
+
+.RegisterPage__BackgroundImage {
+  background-image: url("../assets/register-image.jpg");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center;
+  height: 100vh;
+}
+
+.RegisterPage__Logo {
+  height: 100px;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 200px;
+}
+
+.RegisterPage__Logo__Image {
+  height: 65px;
+  width: auto;
+}
+
+.RegisterPage__Logo__Text {
+  color: #FFFFFF;
+  margin-left: 10px;
+}
