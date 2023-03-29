@@ -1,17 +1,17 @@
-.RegisterPage__Container {
+.SignUp__Container {
   height: 100vh;
   width: 100vw;
 }
 
-.RegisterPage__BackgroundImage {
+.SignUp__BackgroundImage {
   background-image: url("../assets/register-image.jpg");
   background-repeat: no-repeat;
-  background-size: auto;
+  background-size: cover;
   background-position: center;
   height: 100vh;
 }
 
-.RegisterPage__Logo {
+.SignUp__Logo {
   height: 100px;
   background-color: rgba(0, 0, 0, 0.6);
   display: flex;
@@ -20,12 +20,19 @@
   margin-top: 200px;
 }
 
-.RegisterPage__Logo__Image {
+.SignUp__Logo__Image {
   height: 65px;
   width: auto;
 }
 
-.RegisterPage__Logo__Text {
+.SignUp__Logo__Text {
   color: #FFFFFF;
   margin-left: 10px;
+  font-family: "Comfortaa";
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.SignUp__IntroductionText {
+  padding-top: 20vh;
 }
