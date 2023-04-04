@@ -1,0 +1,27 @@
+.btn-darkGreen {
+  background-color: #6b9080;
+  color: white;
+}
+
+.btn-darkGreen:hover {
+  color: #FFFFFF;
+  background-color: #577c6c;
+  border-color: #577c6c;
+}
+
+.btn-darkGreen:active {
+  color: #FFFFFF;
+  background-color: #4d7262;
+  border-color: #4d7262;
+}
+
+.btn-darkGreen:first-child:active {
+  color: #FFFFFF;
+  background-color: #4d7262;
+  border-color: #4d7262;
+}
+
+.btn-xxl {
+  padding: 1rem 1.5rem;
+  font-size: 1.5rem;
+}
