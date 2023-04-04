@@ -1,8 +1,3 @@
-.SignUp__Container {
-  height: 100vh;
-  width: 100vw;
-}
-
 .SignUp__BackgroundImage {
   background-image: url("../assets/register-image.jpg");
   background-repeat: no-repeat;
@@ -33,6 +28,31 @@
   margin-bottom: 0;
 }
 
-.SignUp__IntroductionText {
-  padding-top: 20vh;
+.SignUp__InfoColumn {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  background-color: #eaf4f4;
+}
+
+.SignUp__InfoColumn__Row__IntroductionText {
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.SignUp__InfoColumn__Row {
+  box-shadow: 0 5px 10px 2px rgb(150, 150, 150, 0.5);
+  background-color: #FFFFFF;
+}
+
+
+ /*Medium devices (tablets, 768px and up)*/
+@media (max-width: 767.98px) {
+  .SignUp__BackgroundImage {
+    height: 100%;
+  }
+
+  .SignUp__Logo {
+    margin: auto;
+  }
 }
