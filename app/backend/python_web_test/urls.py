@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from rest_framework import routers
 from core import views
 
@@ -27,4 +27,5 @@ urlpatterns = [
     path('core/', include('core.urls')),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('api/', include(router.urls)),
+    re_path(r'^cities_light/api/', include('cities_light.contrib.restframework3'))
 ]
