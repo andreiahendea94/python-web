@@ -1,9 +1,19 @@
 from rest_framework import serializers
-from .models import User
+from .models import User, City, Country
 
-class UserSerializer(serializers.ModelSerializer):
+class UserSerializer(serializers.HyperlinkedModelSerializer):
+
+    city = serializers.HyperlinkedRelatedField(
+        queryset=City.objects.all(),
+        view_name='cities-light-api-city-detail',
+    )
+    country = serializers.HyperlinkedRelatedField(
+        queryset= Country.objects.all(),
+        view_name='cities-light-api-country-detail',
+    )
+
     class Meta:
         model = User
-        fields = ('id', 'first_name', 'last_name', 'email',
+        fields = ('url', 'id', 'first_name', 'last_name', 'email', 'password',
                   'city', 'country', 'date_of_birth', 'phone_number')
 
