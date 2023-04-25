@@ -18,45 +18,44 @@ export default function SignUpForm({className}: {className: string}): JSX.Elemen
         <Row className="mb-2">
           <Col md={6}>
             <Form.Label column="sm" lg={12}>First Name</Form.Label>
-            <Form.Control type="text" size="sm" placeholder="First name" />
+            <Form.Control name="first_name" type="text" size="sm" placeholder="First name" />
           </Col>
           <Col md={6}>
             <Form.Label column="sm" lg={12}>Last Name</Form.Label>
-            <Form.Control type="text" size="sm" placeholder="Last name" />
+            <Form.Control name="last_name" type="text" size="sm" placeholder="Last name" />
           </Col>
-
         </Row>
 
         <Row className="mb-2">
           <Col md={6}>
             <Form.Label column="sm" lg={12}>Email</Form.Label>
-            <Form.Control type="email" size="sm" placeholder="Email" />
+            <Form.Control name="email" type="email" size="sm" placeholder="Email" />
           </Col>
           <Col md={6}>
             <Form.Label column="sm" lg={12}>Password</Form.Label>
-            <Form.Control type="password" size="sm" placeholder="Password" />
+            <Form.Control name="password" type="password" size="sm" placeholder="Password" />
           </Col>
         </Row>
 
         <Row className="mb-2">
           <Col md={6}>
             <Form.Label column="sm" lg={12}>Date of birth</Form.Label>
-            <Form.Control type="text" size="sm" placeholder="Date of birth" />
+            <Form.Control name="date_of_birth" type="text" size="sm" placeholder="Date of birth" />
           </Col>
           <Col md={6}>
             <Form.Label column="sm" lg={12}>Phone number</Form.Label>
-            <Form.Control type="text" size="sm" placeholder="Phone number" />
+            <Form.Control name="phone_number" type="text" size="sm" placeholder="Phone number" />
           </Col>
         </Row>
 
         <Row className="mb-2">
           <Col md={6}>
             <Form.Label column="sm" lg={12}>City</Form.Label>
-            <SimpleSelect />
+            <SimpleSelect name="city" isSearchable={true}/>
           </Col>
           <Col md={6}>
             <Form.Label column="sm" lg={12}>Country</Form.Label>
-            <SimpleSelect />
+            <SimpleSelect name="country" isSearchable={true}/>
           </Col>
         </Row>
 
