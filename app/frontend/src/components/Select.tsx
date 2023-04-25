@@ -30,16 +30,34 @@ const customStyles = {
   }),
 }
 
+type SelectProps = {
+  styles?: StylesConfig,
+  className?: string,
+  classNamePrefix?: string,
+  isSearchable?: boolean,
+  isLoading?: boolean,
+  name: string
+}
 
 
-export default function SimpleSelect() {
+
+export default function SimpleSelect({
+  styles=customStyles,
+  className,
+  classNamePrefix,
+  isSearchable=false,
+  isLoading=false,
+  name
+}: SelectProps): JSX.Element {
   return (
     <>
       <Select
+        styles={styles}
         className="basic-single"
         classNamePrefix="select"
-        isSearchable={true}
-        styles={customStyles}
+        name={name}
+        isSearchable={isSearchable}
+        isLoading={isLoading}
       />
     </>
   );
