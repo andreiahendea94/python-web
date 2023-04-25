@@ -30,7 +30,7 @@ export default function SignUp() {
           </Row>
           <Row>
             <Col className="p-0">
-              <SignUpForm className={"smth"}/>
+              <SignUpForm className={"SignUp__Form"}/>
             </Col>
           </Row>
           <Row>
