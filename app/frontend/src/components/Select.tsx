@@ -30,7 +30,7 @@ const customStyles = {
   }),
 }
 
-type SelectProps = {
+interface SelectProps {
   styles?: StylesConfig,
   className?: string,
   classNamePrefix?: string,
@@ -38,7 +38,6 @@ type SelectProps = {
   isLoading?: boolean,
   name: string
 }
-
 
 
 export default function SimpleSelect({

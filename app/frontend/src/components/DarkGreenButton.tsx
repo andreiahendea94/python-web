@@ -1,10 +1,10 @@
 import Button from 'react-bootstrap/Button';
 import '../assets/DarkGreenButton.css'
 
-type ButtonProps = {
-  children: any,
+interface ButtonProps {
+  children?: any,
   className?: string,
-  type?: any
+  type?: "button" | "submit" | "reset" | undefined
 }
 
 function DarkGreenButton({children, className=undefined, type}: ButtonProps): JSX.Element {
