@@ -4,7 +4,7 @@ from django import forms
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from .models import User
 import core.forms as custom_forms
-
+from django.utils.translation import gettext_lazy as _
 
 
 
@@ -14,29 +14,33 @@ class CustomUserAdmin(UserAdmin):
 
     form = custom_forms.CustomUserChangeForm
     add_form = custom_forms.CustomUserCreationForm
-    list_display = UserAdmin.list_display + ("city", "country",
+
+    list_display = ("email", "first_name", "last_name", "is_staff", "city", "country",
                                              "phone_number", "date_of_birth")
+    search_fields = ("first_name", "last_name", "email")
 
-    # Add the new fields for the User edit form in admin panel
-    for i in range(len(UserAdmin.fieldsets)):
-        if UserAdmin.fieldsets[i][0] == "Personal info":
-            UserAdmin.fieldsets[i][1]["fields"] += ("city", "country",
-                                  "phone_number", "date_of_birth")
-
-            break
-
-    # Add the new fields for the User creation form in admin panel
-    add_fieldsets = UserAdmin.add_fieldsets + ((None, {"fields": [
-        "first_name",
-        "last_name",
-        "email",
-        "city",
-        "country",
-        "phone_number",
-        "date_of_birth"]}),
+    fieldsets = (
+        (None, {"fields": ("email", "password")}),
+        (_("Personal info"), {"fields": ("first_name", "last_name", "city", "country",
+                                  "phone_number", "date_of_birth")}),
+        (_("Permissions"), {"fields": ("is_active", "is_staff", "is_superuser",
+                                       "groups", "user_permissions")}),
+        (_("Important dates"), {"fields": ("last_login", "date_joined")}),
+    )
+    add_fieldsets = (
+        (None, {
+            "classes": ("wide",),
+            "fields": ("email", "password1", "password2",
+                "first_name",
+                "last_name",
+                "city",
+                "country",
+                "phone_number",
+                "date_of_birth"),
+        }),
     )
 
-    # Filter entries by Is Active column
-    list_filter = UserAdmin.list_filter + ("is_active",)
+    ordering =("email", )
+
 
 admin.site.register(User, CustomUserAdmin)
