@@ -8,10 +8,41 @@ import '../../assets/SignUpForm.css';
 import SimpleSelect from '../../components/Select';
 import DarkGreenButton from '../../components/DarkGreenButton';
 
-export default function SignUpForm({className}: {className: string}): JSX.Element {
+export default function SignUpForm({className=undefined}: {className?: string}): JSX.Element {
+
+  async function asyncSignUpPost(formData: FormData): Promise<void> {
+    try {
+      const response = await fetch("http://localhost:8000/api/users/", {
+        method: "POST",
+        body: JSON.stringify(Object.fromEntries(formData.entries())),
+        // mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const result = await response.json();
+      console.log("Success:", result);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  }
+
+
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    // Prevent the browser from reloading the page
+    event.preventDefault();
+
+    const form = event.target as HTMLFormElement;
+    const formData = new FormData(form);
+
+    asyncSignUpPost(formData);
+  }
+
+
+
 
   return (
-    <Form className={className}>
+    <Form className={className} onSubmit={handleSubmit}>
       <Container fluid className="p-0 SignUpForm__FieldsContainer px-5 py-3">
         <p className="SignUpForm__Paragraph">Let's do this!</p>
 
