@@ -12,4 +12,4 @@ class UserViewSet(viewsets.ModelViewSet):
     A simple ViewSet for listing or retrieving users.
     """
     serializer_class = UserSerializer
-    queryset = User.objects.all()
+    queryset = User.objects.prefetch_related('city', 'country')
