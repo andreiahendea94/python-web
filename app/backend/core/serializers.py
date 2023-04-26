@@ -6,10 +6,12 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
     city = serializers.HyperlinkedRelatedField(
         queryset=City.objects.all(),
         view_name='cities-light-api-city-detail',
+        allow_null=True
     )
     country = serializers.HyperlinkedRelatedField(
-        queryset= Country.objects.all(),
+        queryset=Country.objects.all(),
         view_name='cities-light-api-country-detail',
+        allow_null=True
     )
 
     class Meta:
